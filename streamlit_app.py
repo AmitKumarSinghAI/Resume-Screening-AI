@@ -5,26 +5,37 @@ st.title("Resume Screening APP")
 
 uploaded_file = st.file_uploader(
     "Upload Resume",
-    type = ['pdf','docx']
+    type=['pdf', 'docx']
 )
 
 if uploaded_file is not None:
-    if st.button("predict Category"):
+    if st.button("Predict Category"):
+
         files = {
-            "file":(
+            "file": (
                 uploaded_file.name,
-                uploaded_file,
+                uploaded_file.getvalue(),
                 uploaded_file.type
             )
         }
 
-        response = requests.post(
-            "http://127.0.0.1:8000/predict",
-             files=files
-        )
+        try:
+            response = requests.post(
+                "https://resume-screening-ai-16pz.onrender.com/predict",
+                files=files,
+                timeout=60
+            )
 
-        result = response.json()
+            if response.status_code == 200:
+                result = response.json()
 
-        st.success(
-            f"Predicted Category: {result['prediction']}"
-        )
+                if "prediction" in result:
+                    st.success(f"Predicted Category: {result['prediction']}")
+                else:
+                    st.error(f"Unexpected response: {result}")
+
+            else:
+                st.error(f"API Error: {response.text}")
+
+        except Exception as e:
+            st.error(f"Request failed: {str(e)}")
