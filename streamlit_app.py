@@ -23,7 +23,7 @@ if uploaded_file is not None:
             response = requests.post(
                 "https://resume-screening-ai-16pz.onrender.com/predict",
                 files=files,
-                timeout=60
+                timeout=360
             )
 
             if response.status_code == 200:
