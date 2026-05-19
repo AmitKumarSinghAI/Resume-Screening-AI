@@ -93,12 +93,12 @@ async def predict(file: UploadFile = File(...),job_description:str = Form(...)):
         ats_score = 0
 
         #skill core
-        skill_core = (
+        skill_score = (
             len(matched_skills) /
             max(len(jd_skills),1)
         ) * 40
 
-        ats_score += skill_core
+        ats_score += skill_score
 
         # Education check
         if "education" in clean_text:
@@ -165,16 +165,16 @@ async def predict(file: UploadFile = File(...),job_description:str = Form(...)):
         # experiecne and achive suggestion
         if "experience" not in clean_text:
             resume_suggestions.append(
-                "Add experience and achive."
+                "Add experience and achievements."
             )
 
 
-        question = []
+
         
 
         return {
             "prediction": str(predicted_category[0]),
-            "match_percentage" : int(match_percentage),
+            "match_percentage" : float(match_percentage),
             "matched_skills": list(matched_skills),
             "missing_skills": list(missing_skills),
             "ats_score": float(ats_score),
