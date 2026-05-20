@@ -1,4 +1,4 @@
-# Resume Screening AI 🚀
+# Resume Screening AI And ATS Score 🚀
 
 An AI-powered Resume Screening Application built using Machine Learning, FastAPI, Streamlit, and Docker.
 
