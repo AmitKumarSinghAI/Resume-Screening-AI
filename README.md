@@ -85,7 +85,7 @@ The system analyzes:
 # 🚀 Deployment
 
 ## Backend API
-- Deployed on Render using Docker
+- Deployed on Render 
 
 ## Frontend
 - Deployed on Streamlit Cloud
@@ -136,7 +136,7 @@ resume-screening-ai/
 - Add RAG-based Resume Suggestions
 - Add AI Career Guidance
 - Add Resume Ranking System
-- Add Interview Question Generation
+- Add Interview Question Generation using LLMs
 - Improve ATS Accuracy
 - Multiple Resume Upload Support
 - Add Resume Explanation using LLMs
@@ -146,7 +146,7 @@ resume-screening-ai/
 
 # 👨‍💻 Author
 
-## Amit Kurmi
+## Amit Kumar Singh Kurmi
 
 - Machine Learning Enthusiast
 - Python Developer
